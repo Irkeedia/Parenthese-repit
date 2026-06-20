@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f5f0e8;
+  --color-cream-dark: #ebe4d8;
+  --color-terracotta: #c17a6b;
+  --color-terracotta-light: #d4a094;
+  --color-sage: #8a9a5b;
+  --color-sage-light: #a8b87a;
+  --color-charcoal: #3d3d3d;
+  --color-charcoal-light: #5a5a5a;
+
+  --font-script: "Dancing Script", cursive;
+  --font-sans: "Quicksand", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-charcoal font-sans antialiased;
+  }
+}

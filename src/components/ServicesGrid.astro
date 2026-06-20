@@ -1,0 +1,68 @@
+---
+import { services } from '../data/site';
+
+interface Props {
+  detailed?: boolean;
+}
+
+const { detailed = false } = Astro.props;
+---
+
+<div class="grid sm:grid-cols-2 gap-6 md:gap-8">
+  {
+    services.map((service) => (
+      <article
+        id={detailed ? service.slug : undefined}
+        class="group bg-cream rounded-2xl p-6 md:p-8 shadow-sm border border-cream-dark/50 hover:shadow-md hover:border-terracotta/20 transition-all duration-300"
+      >
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-terracotta/10 flex items-center justify-center text-terracotta group-hover:bg-terracotta/20 transition-colors">
+            {service.icon === 'users' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            )}
+            {service.icon === 'heart-hand' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+            )}
+            {service.icon === 'puzzle' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15.39 4.39a5 5 0 0 0-7.22 0l-2.83 2.83a5 5 0 0 0 0 7.07l2.83 2.83a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0 0-7.07z" />
+              </svg>
+            )}
+            {service.icon === 'home-heart' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              </svg>
+            )}
+          </div>
+          <div class="flex-1">
+            <h3 class="font-semibold text-charcoal text-lg mb-2">{service.title}</h3>
+            <p class="text-charcoal-light leading-relaxed mb-3">{service.summary}</p>
+            {
+              detailed && (
+                <ul class="space-y-2 mb-4">
+                  {service.details.map((detail) => (
+                    <li class="flex gap-2 text-sm text-charcoal-light leading-relaxed">
+                      <span class="text-sage mt-1">•</span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+            {!detailed && (
+              <a href="/services" class="text-sm font-semibold text-terracotta hover:underline">
+                En savoir plus →
+              </a>
+            )}
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

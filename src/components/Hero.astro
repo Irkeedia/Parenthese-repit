@@ -1,0 +1,60 @@
+---
+import BotanicalDecor from './BotanicalDecor.astro';
+import StockImage from './StockImage.astro';
+import { site } from '../data/site';
+import { images } from '../data/images';
+---
+
+<section class="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+  <BotanicalDecor variant="left" class="absolute top-20 left-0 w-24 md:w-32 opacity-60" />
+  <BotanicalDecor variant="right" class="absolute bottom-10 right-0 w-28 md:w-36 opacity-50" />
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div class="relative z-10">
+        <h1 class="font-script text-5xl sm:text-6xl md:text-7xl text-terracotta leading-tight mb-4">
+          {site.name}
+        </h1>
+        <p class="text-lg sm:text-xl font-semibold text-charcoal mb-6 tracking-wide">
+          {site.tagline}
+        </p>
+        <p class="text-charcoal-light leading-relaxed mb-8 max-w-lg">
+          J'accompagne les familles entre Narbonne et Béziers avec douceur et professionnalisme.
+          Répit parental, soutien éducatif, accompagnement des enfants et jeunes en situation de handicap.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a
+            href="/contact"
+            class="inline-flex items-center px-6 py-3 rounded-full bg-terracotta text-white font-semibold hover:bg-terracotta-light transition-colors"
+          >
+            Me contacter
+          </a>
+          <a
+            href="/services"
+            class="inline-flex items-center px-6 py-3 rounded-full border-2 border-terracotta text-terracotta font-semibold hover:bg-terracotta/10 transition-colors"
+          >
+            Découvrir mes services
+          </a>
+        </div>
+
+        <div class="relative inline-flex items-center justify-center w-44 h-44 sm:w-48 sm:h-48">
+          <div class="absolute inset-0 rounded-full bg-charcoal shadow-lg"></div>
+          <p class="relative z-10 text-center text-white text-sm font-medium leading-snug px-5">
+            {site.motto}
+          </p>
+        </div>
+      </div>
+
+      <div class="relative max-w-md mx-auto w-full">
+        <StockImage
+          src={images.hero.src}
+          alt={images.hero.alt}
+          aspect="portrait"
+          rounded="3xl"
+        />
+        <BotanicalDecor variant="corner" class="absolute -bottom-6 -left-6 w-20 opacity-70" />
+      </div>
+    </div>
+  </div>
+</section>

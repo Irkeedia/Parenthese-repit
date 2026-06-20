@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import StockImage from '../components/StockImage.astro';
+import { images } from '../data/images';
+---
+
+<BaseLayout
+  title="Services — Parenthèse Répit"
+  description="Répit parental, accompagnement éducatif, TSA et handicap, aide à domicile entre Narbonne et Béziers."
+  currentPath="/services"
+>
+  <PageHeader
+    title="Mes services"
+    subtitle="Des prestations adaptées à chaque famille, à domicile, avec bienveillance et professionnalisme."
+  />
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
+        <StockImage
+          src={images.services.src}
+          alt={images.services.alt}
+          aspect="wide"
+          rounded="2xl"
+        />
+        <div>
+          <h2 class="font-script text-3xl text-terracotta mb-4">Un accompagnement sur mesure</h2>
+          <p class="text-charcoal-light leading-relaxed">
+            Chaque famille a des besoins différents. Mes prestations s'adaptent à l'âge de l'enfant,
+            à votre rythme de vie et à la fréquence d'intervention que vous recherchez — que ce soit
+            pour du répit ponctuel ou un soutien plus régulier.
+          </p>
+        </div>
+      </div>
+
+      <ServicesGrid detailed />
+
+      <div class="mt-16 bg-cream-dark/50 rounded-2xl p-8 md:p-10 border border-sage/20">
+        <h2 class="font-semibold text-charcoal text-xl mb-4">Ce que je peux faire concrètement</h2>
+        <div class="grid sm:grid-cols-2 gap-4 text-sm text-charcoal-light">
+          <ul class="space-y-2">
+            <li class="flex gap-2"><span class="text-sage">•</span> Accompagnement aux activités quotidiennes</li>
+            <li class="flex gap-2"><span class="text-sage">•</span> Soutien aux devoirs et à l'autonomie</li>
+            <li class="flex gap-2"><span class="text-sage">•</span> Sorties, loisirs, socialisation</li>
+            <li class="flex gap-2"><span class="text-sage">•</span> Aide à la gestion des routines</li>
+          </ul>
+          <ul class="space-y-2">
+            <li class="flex gap-2"><span class="text-sage">•</span> Répit pour les parents (quelques heures ou demi-journée)</li>
+            <li class="flex gap-2"><span class="text-sage">•</span> Accompagnement sensoriel et comportemental</li>
+            <li class="flex gap-2"><span class="text-sage">•</span> Soutien émotionnel et relationnel</li>
+            <li class="flex gap-2"><span class="text-sage">•</span> Interventions en soirée ou le week-end</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-cream-dark/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="font-script text-4xl text-terracotta mb-8 text-center">Pour qui, et dans quelles situations ?</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50">
+          <h3 class="font-semibold text-charcoal mb-3">Situations fréquentes</h3>
+          <ul class="space-y-2 text-sm text-charcoal-light">
+            <li>• Parents épuisés qui ont besoin de souffler</li>
+            <li>• Familles avec un enfant en situation de handicap</li>
+            <li>• Adolescents ayant besoin d'un soutien éducatif</li>
+            <li>• Besoin ponctuel (vacances, événement, urgence)</li>
+          </ul>
+        </article>
+        <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50">
+          <h3 class="font-semibold text-charcoal mb-3">Ce que je ne remplace pas</h3>
+          <p class="text-sm text-charcoal-light leading-relaxed">
+            Mon rôle est complémentaire : je ne remplace pas les soins médicaux, le suivi
+            psychologique ou scolaire institutionnel. En revanche, je peux travailler en lien
+            avec les professionnels déjà impliqués, dans le respect de la confidentialité.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-charcoal-light mb-6">
+        Vous ne savez pas quelle prestation correspond à votre situation ? Contactez-moi,
+        nous en discuterons ensemble.
+      </p>
+      <a href="/contact" class="inline-flex items-center px-6 py-3 rounded-full bg-terracotta text-white font-semibold hover:bg-terracotta-light transition-colors">
+        Demander un premier échange
+      </a>
+    </div>
+  </section>
+</BaseLayout>

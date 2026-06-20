@@ -1,0 +1,69 @@
+---
+import { site, navLinks } from '../data/site';
+---
+
+<footer class="py-12 md:py-16 bg-charcoal text-cream">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid md:grid-cols-3 gap-10 mb-12 text-left">
+      <div>
+        <p class="font-script text-3xl text-terracotta-light mb-3">{site.name}</p>
+        <p class="text-cream/70 text-sm leading-relaxed">{site.tagline}</p>
+      </div>
+
+      <div>
+        <p class="font-semibold mb-4 text-cream/90">Navigation</p>
+        <ul class="space-y-2">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a href={link.href} class="text-sm text-cream/60 hover:text-terracotta-light transition-colors">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-semibold mb-4 text-cream/90">Contact</p>
+        <ul class="space-y-2 text-sm text-cream/60">
+          <li>
+            <a href={site.phoneHref} class="hover:text-terracotta-light transition-colors">{site.phone}</a>
+          </li>
+          <li>
+            <a href={site.emailHref} class="hover:text-terracotta-light transition-colors break-all">{site.email}</a>
+          </li>
+          <li>{site.zone}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center border-t border-cream/10 pt-10">
+      <p class="font-script text-2xl md:text-3xl text-terracotta-light mb-4 leading-snug max-w-xl mx-auto">
+        {site.closingTagline}
+      </p>
+
+      <p class="text-cream/80 font-semibold mb-6">{site.credential}</p>
+
+      <div class="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-cream/10 border border-cream/20 mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sage-light" aria-hidden="true">
+          <path d="M20 6 9 17l-5-5" />
+        </svg>
+        <span class="font-semibold text-sm">CESU accepté — Paiement CESU possible</span>
+      </div>
+
+      <p class="text-sm text-cream/50">
+        &copy; {new Date().getFullYear()} {site.name} — Tous droits réservés
+        <span class="mx-2">·</span>
+        <a href="/mentions-legales" class="hover:text-terracotta-light transition-colors">Mentions légales</a>
+      </p>
+      <p class="text-xs text-cream/40 mt-3">
+        Site édité par{' '}
+        <a href={site.legal.editor.website} class="hover:text-terracotta-light transition-colors" target="_blank" rel="noopener noreferrer">
+          {site.legal.editor.name}
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>

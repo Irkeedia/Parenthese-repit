@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import StockImage from '../components/StockImage.astro';
+import { site } from '../data/site';
+import { images } from '../data/images';
+---
+
+<BaseLayout
+  title="À propos — Parenthèse Répit"
+  description="Découvrez mon parcours d'accompagnante éducative et sociale, ma démarche et mes valeurs."
+  currentPath="/a-propos"
+>
+  <PageHeader
+    title="À propos de moi"
+    subtitle="Accompagnante Éducative et Sociale diplômée, je mets mon expertise au service des familles."
+  />
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <StockImage
+          src={images.about.src}
+          alt={images.about.alt}
+          aspect="portrait"
+          rounded="2xl"
+        />
+
+        <div class="space-y-6 text-charcoal-light leading-relaxed">
+          <p>
+            Je suis <strong class="text-charcoal">Audrey</strong>, accompagnante éducative et sociale diplômée.
+            J'ai choisi ce métier par conviction : accompagner les familles dans leur quotidien,
+            soulager les parents et permettre à chaque enfant de s'épanouir dans un cadre bienveillant.
+          </p>
+          <p>
+            <strong class="text-charcoal">Parenthèse Répit</strong>, c'est l'idée d'offrir aux familles
+            une pause, un moment pour respirer, pendant que je prends soin de leurs enfants avec
+            professionnalisme et douceur.
+          </p>
+          <p>
+            Mon expérience m'a amenée à travailler auprès d'enfants, d'adolescents et de jeunes adultes,
+            y compris en situation de handicap ou avec un TSA. J'adapte toujours mon approche
+            à la personne que j'accompagne, en respectant son rythme et ses particularités.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-cream-dark/50 rounded-2xl p-8 border border-sage/20 max-w-2xl">
+        <h2 class="font-semibold text-charcoal text-xl mb-6">Mes valeurs</h2>
+        <ul class="space-y-4">
+          {
+            site.values.map((value) => (
+              <li class="flex items-center gap-3">
+                <span class="w-10 h-10 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </span>
+                <span class="font-semibold text-charcoal">{value}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-cream-dark/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="font-script text-4xl text-terracotta mb-10 text-center">Ma démarche</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50">
+          <h3 class="font-semibold text-charcoal mb-3">Écoute active</h3>
+          <p class="text-sm text-charcoal-light leading-relaxed">
+            Avant toute intervention, je prends le temps de comprendre votre situation familiale,
+            vos attentes et celles de votre enfant. Chaque accompagnement est co-construit avec vous.
+          </p>
+        </article>
+        <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50">
+          <h3 class="font-semibold text-charcoal mb-3">Approche individualisée</h3>
+          <p class="text-sm text-charcoal-light leading-relaxed">
+            Pas de recette toute faite : j'adapte mes méthodes à l'âge, au tempérament et aux besoins
+            spécifiques de chaque enfant ou jeune que j'accompagne.
+          </p>
+        </article>
+        <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50">
+          <h3 class="font-semibold text-charcoal mb-3">Travail en partenariat</h3>
+          <p class="text-sm text-charcoal-light leading-relaxed">
+            Les parents restent au centre du projet. Je vous tiens informés, j'intègre vos retours
+            et je peux, si besoin, échanger avec les autres professionnels déjà impliqués.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <h2 class="font-semibold text-charcoal text-xl mb-4">Pour qui ?</h2>
+          <ul class="space-y-3 text-charcoal-light">
+            <li class="flex gap-2"><span class="text-sage">•</span> Familles avec enfants, adolescents ou jeunes adultes</li>
+            <li class="flex gap-2"><span class="text-sage">•</span> Parents en recherche de répit ou de soutien</li>
+            <li class="flex gap-2"><span class="text-sage">•</span> Enfants et jeunes en situation de handicap ou avec un TSA</li>
+            <li class="flex gap-2"><span class="text-sage">•</span> Familles ayant besoin d'une aide ponctuelle ou régulière</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="font-semibold text-charcoal text-xl mb-4">Zone d'intervention</h2>
+          <p class="text-charcoal-light leading-relaxed mb-4">
+            J'interviens à domicile sur l'ensemble du secteur <strong class="text-charcoal">Narbonne – Béziers</strong>
+            et les communes alentours : villages, hameaux et quartiers périphériques inclus.
+          </p>
+          <p class="text-sm text-charcoal-light">
+            Vous habitez un peu plus loin ? Contactez-moi : nous verrons ensemble si une intervention
+            est possible.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-charcoal text-cream">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="font-script text-3xl text-terracotta-light mb-4">{site.closingTagline}</p>
+      <p class="text-cream/70 mb-6">{site.credential}</p>
+      <a href="/contact" class="inline-flex items-center px-6 py-3 rounded-full bg-terracotta text-white font-semibold hover:bg-terracotta-light transition-colors">
+        Me contacter
+      </a>
+    </div>
+  </section>
+</BaseLayout>

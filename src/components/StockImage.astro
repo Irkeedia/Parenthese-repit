@@ -1,0 +1,41 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  aspect?: 'video' | 'square' | 'portrait' | 'wide';
+  rounded?: '2xl' | '3xl' | 'xl';
+}
+
+const {
+  src,
+  alt,
+  class: className = '',
+  aspect = 'portrait',
+  rounded = '3xl',
+} = Astro.props;
+
+const aspectClass = {
+  video: 'aspect-video',
+  square: 'aspect-square',
+  portrait: 'aspect-[4/5]',
+  wide: 'aspect-[16/9]',
+}[aspect];
+
+const roundedClass = {
+  xl: 'rounded-xl',
+  '2xl': 'rounded-2xl',
+  '3xl': 'rounded-3xl',
+}[rounded];
+---
+
+<div class:list={['relative overflow-hidden shadow-xl', aspectClass, roundedClass, className]}>
+  <img
+    src={src}
+    alt={alt}
+    class="w-full h-full object-cover"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="absolute inset-0 bg-gradient-to-t from-charcoal/15 to-transparent pointer-events-none"></div>
+</div>

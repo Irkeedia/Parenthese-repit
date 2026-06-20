@@ -1,17 +1,142 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import StockImage from '../components/StockImage.astro';
+import { site } from '../data/site';
+import { images } from '../data/images';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Parenthèse Répit — Accompagnement bienveillant à domicile"
+  description="Accompagnement éducatif et social à domicile entre Narbonne et Béziers. Répit parental, TSA, handicap."
+>
+  <Hero />
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <div class="text-center p-6">
+          <div class="w-14 h-14 rounded-full bg-sage/15 flex items-center justify-center mx-auto mb-4 text-sage">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </div>
+          <h2 class="font-semibold text-charcoal mb-2">À votre domicile</h2>
+          <p class="text-sm text-charcoal-light leading-relaxed">
+            L'intervention se fait chez vous, dans un cadre familier et rassurant pour l'enfant.
+          </p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-14 h-14 rounded-full bg-terracotta/15 flex items-center justify-center mx-auto mb-4 text-terracotta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <h2 class="font-semibold text-charcoal mb-2">Horaires flexibles</h2>
+          <p class="text-sm text-charcoal-light leading-relaxed">
+            En journée, en soirée ou le week-end — selon vos besoins et votre organisation.
+          </p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-14 h-14 rounded-full bg-sage/15 flex items-center justify-center mx-auto mb-4 text-sage">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <h2 class="font-semibold text-charcoal mb-2">{site.zone}</h2>
+          <p class="text-sm text-charcoal-light leading-relaxed">
+            J'interviens sur Narbonne, Béziers et les communes alentours.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mb-10">
+        <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-terracotta mb-3">Mes services</h2>
+        <div class="w-12 h-0.5 bg-terracotta mx-auto mb-4"></div>
+        <p class="text-charcoal-light max-w-2xl mx-auto">
+          Un accompagnement sur mesure, pensé pour les familles et les enfants.
+        </p>
+      </div>
+
+      <ServicesGrid />
+
+      <div class="text-center mt-12">
+        <a href="/services" class="inline-flex items-center px-6 py-3 rounded-full bg-terracotta text-white font-semibold hover:bg-terracotta-light transition-colors">
+          Voir tous les services en détail
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-cream-dark/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <StockImage
+          src={images.family.src}
+          alt={images.family.alt}
+          aspect="wide"
+          rounded="2xl"
+          class="order-2 md:order-1"
+        />
+        <div class="order-1 md:order-2">
+          <h2 class="font-script text-4xl text-terracotta mb-4">Une approche humaine</h2>
+          <p class="text-charcoal-light leading-relaxed mb-4">
+            {site.values.join(', ')} sont au cœur de mon accompagnement. Chaque famille est unique :
+            je prends le temps d'écouter, de comprendre vos attentes et de construire avec vous
+            un projet d'accompagnement adapté.
+          </p>
+          <a href="/a-propos" class="text-terracotta font-semibold hover:underline">
+            En savoir plus sur mon parcours →
+          </a>
+        </div>
+        <div class="bg-cream rounded-2xl p-8 border border-cream-dark/50">
+          <h3 class="font-semibold text-charcoal mb-4">Comment ça se passe ?</h3>
+          <ol class="space-y-4">
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">1</span>
+              <div>
+                <p class="font-semibold text-charcoal">Premier contact</p>
+                <p class="text-sm text-charcoal-light">Par téléphone ou email, nous échangeons sur votre situation.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">2</span>
+              <div>
+                <p class="font-semibold text-charcoal">Rencontre à domicile</p>
+                <p class="text-sm text-charcoal-light">Je viens vous rencontrer pour mieux comprendre vos besoins.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">3</span>
+              <div>
+                <p class="font-semibold text-charcoal">Accompagnement</p>
+                <p class="text-sm text-charcoal-light">Nous définissons ensemble la fréquence et les objectifs.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-script text-4xl text-terracotta mb-4">Prête à en parler ?</h2>
+      <p class="text-charcoal-light mb-8 leading-relaxed">
+        N'hésitez pas à me contacter pour un premier échange, sans engagement.
+        Je serai ravie de répondre à vos questions.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={site.phoneHref} class="inline-flex items-center px-6 py-3 rounded-full bg-terracotta text-white font-semibold hover:bg-terracotta-light transition-colors">
+          {site.phone}
+        </a>
+        <a href="/contact" class="inline-flex items-center px-6 py-3 rounded-full border-2 border-terracotta text-terracotta font-semibold hover:bg-terracotta/10 transition-colors">
+          Formulaire de contact
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
