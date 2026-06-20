@@ -5,29 +5,28 @@ import { site } from '../data/site';
 ---
 
 <BaseLayout
-  title="Tarifs & CESU — Parenthèse Répit"
-  description="Informations sur les tarifs, le paiement CESU et les modalités de prise en charge."
-  currentPath="/tarifs"
+  title="Modalités — Parenthèse Répit"
+  description="Rémunération, dispositif CESU et modalités pratiques pour l'accompagnement à domicile entre Narbonne et Béziers."
+  currentPath="/modalites"
 >
   <PageHeader
-    title="Tarifs & CESU"
-    subtitle="Des tarifs transparents et la possibilité de payer en CESU pour faciliter votre quotidien."
+    title="Modalités"
+    subtitle="Un cadre clair pour les familles : emploi direct via CESU, rémunération selon la convention collective."
   />
 
   <section class="py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid md:grid-cols-2 gap-10 mb-16">
         <div class="bg-cream rounded-2xl p-8 border border-cream-dark/50">
-          <h2 class="font-semibold text-charcoal text-xl mb-4">Tarif horaire</h2>
-          <p class="text-4xl font-bold text-terracotta mb-2">Sur devis</p>
-          <p class="text-charcoal-light text-sm leading-relaxed mb-4">
-            Le tarif dépend de la nature de l'accompagnement, de la fréquence des interventions
-            et de votre situation. Un devis personnalisé vous est proposé après notre premier échange.
+          <h2 class="font-semibold text-charcoal text-xl mb-4">Rémunération</h2>
+          <p class="text-charcoal-light leading-relaxed mb-4">
+            La rémunération est fixée selon la <strong class="text-charcoal">convention collective
+            des particuliers employeurs</strong>. Elle dépend notamment de la nature de
+            l'accompagnement, de la fréquence des interventions et de votre situation familiale.
           </p>
-          <p class="text-sm text-charcoal-light">
-            <strong class="text-charcoal">Exemple :</strong> répit parental de 3 h en semaine,
-            accompagnement régulier le week-end, soutien ponctuel avant les vacances…
-            Chaque projet est différent.
+          <p class="text-sm text-charcoal-light leading-relaxed">
+            Je ne fixe pas de tarifs affichés : chaque projet se construit avec vous lors d'un
+            premier échange. Contactez-moi pour en discuter librement.
           </p>
         </div>
 
@@ -36,12 +35,13 @@ import { site } from '../data/site';
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-terracotta" aria-hidden="true">
               <path d="M20 6 9 17l-5-5" />
             </svg>
-            <h2 class="font-semibold text-charcoal text-xl">CESU accepté</h2>
+            <h2 class="font-semibold text-charcoal text-xl">Paiement via CESU (particulier employeur)</h2>
           </div>
           <p class="text-charcoal-light leading-relaxed mb-4">
-            <strong class="text-charcoal">Paiement CESU possible.</strong> Le Chèque Emploi Service
-            Universel vous permet de régler facilement les heures d'accompagnement à domicile,
-            avec des avantages fiscaux pour les particuliers employeurs.
+            J'exerce en tant que <strong class="text-charcoal">salariée</strong> de chaque famille
+            qui m'emploie, via le portail <strong class="text-charcoal">CESU+</strong>.
+            Vous êtes particulier employeur : le Chèque Emploi Service Universel permet de
+            régler les heures d'accompagnement à domicile, avec des avantages fiscaux.
           </p>
           <ul class="space-y-2 text-sm text-charcoal-light">
             <li class="flex gap-2"><span class="text-terracotta">✓</span> CESU papier ou CESU dématérialisé</li>
@@ -49,6 +49,21 @@ import { site } from '../data/site';
             <li class="flex gap-2"><span class="text-terracotta">✓</span> Démarches simplifiées pour les familles</li>
           </ul>
         </div>
+      </div>
+
+      <div class="bg-cream-dark/50 rounded-2xl p-8 md:p-10 border border-sage/20 mb-16">
+        <h2 class="font-semibold text-charcoal text-xl mb-4">Comment ça fonctionne ?</h2>
+        <p class="text-charcoal-light leading-relaxed mb-4">
+          <strong class="text-charcoal">Parenthèse Répit</strong> est le nom sous lequel je présente
+          mon activité. Je ne suis pas auto-entrepreneur et je n'exerce pas en tant que prestataire
+          indépendante : chaque famille m'embauche directement en tant que salariée, conformément
+          au cadre CESU.
+        </p>
+        <p class="text-sm text-charcoal-light leading-relaxed">
+          Après notre échange sur vos besoins, les modalités d'emploi (horaires, rémunération,
+          durée) sont convenues ensemble, puis formalisées dans le cadre de votre contrat
+          d'emploi via CESU+.
+        </p>
       </div>
 
       <h2 class="font-script text-4xl text-terracotta mb-8 text-center">Modalités pratiques</h2>
@@ -72,7 +87,7 @@ import { site } from '../data/site';
           <h3 class="font-semibold text-charcoal mb-2">Annulation</h3>
           <p class="text-sm text-charcoal-light leading-relaxed">
             Merci de prévenir au moins 24 h à l'avance en cas d'empêchement.
-            Les conditions précises sont précisées dans le devis.
+            Les conditions précises sont définies dans votre contrat d'emploi.
           </p>
         </article>
       </div>
@@ -81,7 +96,7 @@ import { site } from '../data/site';
 
   <section class="py-16 bg-cream-dark/40">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <h2 class="font-semibold text-charcoal text-xl mb-6 text-center">Comment obtenir un devis ?</h2>
+      <h2 class="font-semibold text-charcoal text-xl mb-6 text-center">Les étapes pour démarrer</h2>
       <ol class="space-y-6">
         <li class="flex gap-4">
           <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">1</span>
@@ -94,21 +109,21 @@ import { site } from '../data/site';
           <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">2</span>
           <div>
             <p class="font-semibold text-charcoal">Échangeons sur vos besoins</p>
-            <p class="text-sm text-charcoal-light">Nous définissons ensemble la nature et la fréquence de l'accompagnement.</p>
+            <p class="text-sm text-charcoal-light">Nous définissons ensemble la nature, la fréquence et les modalités de l'accompagnement.</p>
           </div>
         </li>
         <li class="flex gap-4">
           <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">3</span>
           <div>
-            <p class="font-semibold text-charcoal">Recevez votre devis</p>
-            <p class="text-sm text-charcoal-light">Un devis clair, sans surprise, avec les modalités de paiement CESU si souhaité.</p>
+            <p class="font-semibold text-charcoal">Formalisation via CESU+</p>
+            <p class="text-sm text-charcoal-light">Vous m'employez en tant que salariée via le portail CESU+, avec un cadre clair pour tous.</p>
           </div>
         </li>
       </ol>
 
       <div class="text-center mt-10">
         <a href="/contact" class="inline-flex items-center px-6 py-3 rounded-full bg-terracotta text-white font-semibold hover:bg-terracotta-light transition-colors">
-          Demander un devis
+          Me contacter
         </a>
       </div>
     </div>

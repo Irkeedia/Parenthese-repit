@@ -49,17 +49,30 @@ const { legal } = site;
 
       <LegalSection title="2. Professionnelle présentée">
         <p>
-          Le site présente l'activité de <strong class="text-charcoal">{legal.professional.businessName}</strong>,
-          exercée par <strong class="text-charcoal">{legal.professional.name}</strong> :
+          Ce site est une vitrine présentant l'activité de{' '}
+          <strong class="text-charcoal">{legal.professional.name}</strong>, sous le nom{' '}
+          <strong class="text-charcoal">{legal.professional.brandName}</strong>.
         </p>
-        <ul class="list-none space-y-1 pl-0">
-          <li>{legal.professional.status}</li>
-          <li>Adresse : {legal.professional.address}</li>
-          <li>SIRET : {legal.professional.siret}</li>
-          <li>Téléphone : <a href={site.phoneHref} class="text-terracotta hover:underline">{site.phone}</a></li>
-          <li>Email : <a href={site.emailHref} class="text-terracotta hover:underline">{site.email}</a></li>
+        <ul class="list-none space-y-1 pl-0 mt-4">
+          <li>{legal.professional.qualification}</li>
+          <li>{legal.professional.employment}</li>
+          <li>
+            Téléphone :{' '}
+            <a href={site.phoneHref} class="text-terracotta hover:underline">{site.phone}</a>
+          </li>
+          <li>
+            Email :{' '}
+            <a href={site.emailHref} class="text-terracotta hover:underline">{site.email}</a>
+          </li>
         </ul>
-        <p>Zone d'intervention : {site.zone}.</p>
+        <p class="mt-4">Zone d'intervention : {site.zone}.</p>
+        <p class="mt-4 text-sm">
+          {legal.professional.name} n'exerce pas en tant qu'auto-entrepreneur ni en tant que
+          prestataire indépendante. Chaque famille qui fait appel à elle l'emploie directement
+          en tant que salariée, via le portail CESU+. Ce site ne constitue pas une structure
+          commerciale : il n'y a pas de numéro SIRET ni d'adresse professionnelle à publier
+          dans ce cadre.
+        </p>
       </LegalSection>
 
       <LegalSection title="3. Directeur de la publication">
@@ -132,7 +145,7 @@ const { legal } = site;
         <h3 class="font-semibold text-charcoal mt-6 mb-2">Responsable du traitement</h3>
         <p>
           Les données transmises via le formulaire de contact ou par email dans le cadre d'une
-          demande de prestation sont traitées par {legal.professional.name} ({site.email}).
+          demande de renseignements sont traitées par {legal.professional.name} ({site.email}).
         </p>
 
         <h3 class="font-semibold text-charcoal mt-6 mb-2">Données collectées</h3>
@@ -143,8 +156,8 @@ const { legal } = site;
 
         <h3 class="font-semibold text-charcoal mt-6 mb-2">Finalité du traitement</h3>
         <p>
-          Répondre à vos demandes de renseignements, organiser un premier échange ou établir un devis.
-          Les données ne sont ni vendues, ni cédées à des tiers.
+          Répondre à vos demandes de renseignements et organiser un premier échange sur vos besoins
+          d'accompagnement. Les données ne sont ni vendues, ni cédées à des tiers.
         </p>
 
         <h3 class="font-semibold text-charcoal mt-6 mb-2">Durée de conservation</h3>
@@ -178,8 +191,9 @@ const { legal } = site;
           informations diffusées sur ce site, sans toutefois en garantir l'exhaustivité ou l'actualité.
         </p>
         <p>
-          Les informations présentes ne constituent pas un engagement contractuel. Seul un devis ou
-          une convention signée entre les parties fait foi.
+          Les informations présentes ne constituent pas un engagement contractuel ni une offre
+          d'emploi. Seules les démarches formalisées via le portail CESU+ entre la famille
+          employeur et {legal.professional.name} font foi.
         </p>
       </LegalSection>
 

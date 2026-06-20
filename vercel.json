@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/tarifs",
+      "destination": "/modalites",
+      "permanent": true
+    }
+  ],
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "astro",

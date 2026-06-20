@@ -23,10 +23,10 @@ export const site = {
     },
     professional: {
       name: 'Audrey',
-      businessName: 'Parenthèse Répit',
-      status: 'Travailleuse indépendante — Accompagnante Éducative et Sociale',
-      address: '[Adresse postale à compléter]',
-      siret: '[Numéro SIRET à compléter]',
+      brandName: 'Parenthèse Répit',
+      qualification: 'Accompagnante Éducative et Sociale diplômée',
+      employment:
+        'Salariée en emploi direct via le dispositif CESU (particulier employeur)',
     },
     publicationDirector: 'Mathieu Toffolon',
     host: {
@@ -41,7 +41,7 @@ export const navLinks = [
   { href: '/', label: 'Accueil' },
   { href: '/a-propos', label: 'À propos' },
   { href: '/services', label: 'Services' },
-  { href: '/tarifs', label: 'Tarifs & CESU' },
+  { href: '/modalites', label: 'Modalités' },
   { href: '/contact', label: 'Contact' },
 ] as const;
 

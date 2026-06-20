@@ -44,8 +44,8 @@ Le site est **100 % statique** : pas de base de données, pas de backend, pas de
 |-------|---------|-------------|
 | `/` | `src/pages/index.astro` | Accueil, aperçu des services, démarche |
 | `/a-propos` | `src/pages/a-propos.astro` | Parcours, valeurs, zone d'intervention |
-| `/services` | `src/pages/services.astro` | Prestations détaillées |
-| `/tarifs` | `src/pages/tarifs.astro` | Tarifs, CESU, modalités |
+| `/services` | `src/pages/services.astro` | Services et accompagnements détaillés |
+| `/modalites` | `src/pages/modalites.astro` | Rémunération, CESU, modalités pratiques |
 | `/contact` | `src/pages/contact.astro` | Coordonnées et formulaire |
 | `/mentions-legales` | `src/pages/mentions-legales.astro` | Mentions légales et RGPD |
 
@@ -130,12 +130,16 @@ La plupart des textes et coordonnées sont centralisés dans **`src/data/site.ts
 
 Les images sont définies dans **`src/data/images.ts`** et stockées dans **`public/images/`**.
 
-### À compléter avant mise en production définitive
+### Statut professionnel d'Audrey
 
-Dans `src/data/site.ts`, section `legal.professional` :
+Audrey exerce en tant que **salariée CESU** (particulier employeur), et non en tant
+qu'auto-entrepreneur ou prestataire indépendante. Le site ne doit donc pas mentionner
+de SIRET, de tarifs fixes affichés, ni de wording commercial type « devis » ou « facturation ».
 
-- Adresse postale d'Audrey
-- Numéro SIRET
+Les informations légales correspondantes sont dans `src/data/site.ts`, section
+`legal.professional`, et sur la page `/mentions-legales`.
+
+### Domaine custom
 
 Dans `astro.config.mjs`, mettre à jour `site` si un domaine custom est configuré :
 
@@ -263,7 +267,6 @@ Protections côté client (`public/js/form-security.js`) :
 
 - Le rate limiting du formulaire est **côté client uniquement** (contournable — acceptable pour un `mailto:` sans backend)
 - Pas de WAF applicatif (Vercel Edge offre une protection DDoS de base)
-- Les placeholders légaux (SIRET, adresse) doivent être complétés
 
 ---
 
