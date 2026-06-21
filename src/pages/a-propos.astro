@@ -8,7 +8,7 @@ import { images } from '../data/images';
 
 <BaseLayout
   title="À propos — Parenthèse Répit"
-  description="Découvrez mon parcours d'accompagnante éducative et sociale, ma démarche et mes valeurs."
+  description="Découvrez le parcours d'Audrey Mas, accompagnante éducative et sociale diplômée, et l'approche de Parenthèse Répit."
   currentPath="/a-propos"
 >
   <PageHeader
@@ -27,21 +27,11 @@ import { images } from '../data/images';
         />
 
         <div class="space-y-6 text-charcoal-light leading-relaxed">
-          <p>
-            Je suis <strong class="text-charcoal">Audrey</strong>, accompagnante éducative et sociale diplômée.
-            J'ai choisi ce métier par conviction : accompagner les familles dans leur quotidien,
-            soulager les parents et permettre à chaque enfant de s'épanouir dans un cadre bienveillant.
-          </p>
-          <p>
-            <strong class="text-charcoal">Parenthèse Répit</strong>, c'est l'idée d'offrir aux familles
-            une pause, un moment pour respirer, pendant que je prends soin de leurs enfants avec
-            professionnalisme et douceur.
-          </p>
-          <p>
-            Mon expérience m'a amenée à travailler auprès d'enfants, d'adolescents et de jeunes adultes,
-            y compris en situation de handicap ou avec un TSA. J'adapte toujours mon approche
-            à la personne que j'accompagne, en respectant son rythme et ses particularités.
-          </p>
+          {
+            site.presentation.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))
+          }
         </div>
       </div>
 
@@ -67,31 +57,17 @@ import { images } from '../data/images';
 
   <section class="py-16 md:py-20 bg-cream-dark/40">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <h2 class="font-script text-4xl text-terracotta mb-10 text-center">Ma démarche</h2>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50">
-          <h3 class="font-semibold text-charcoal mb-3">Écoute active</h3>
-          <p class="text-sm text-charcoal-light leading-relaxed">
-            Avant toute intervention, je prends le temps de comprendre votre situation familiale,
-            vos attentes et celles de votre enfant. Chaque accompagnement est co-construit avec vous.
-          </p>
-        </article>
-        <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50">
-          <h3 class="font-semibold text-charcoal mb-3">Approche individualisée</h3>
-          <p class="text-sm text-charcoal-light leading-relaxed">
-            Pas de recette toute faite : j'adapte mes méthodes à l'âge, au tempérament et aux besoins
-            spécifiques de chaque enfant ou jeune que j'accompagne.
-          </p>
-        </article>
-        <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50">
-          <h3 class="font-semibold text-charcoal mb-3">Travail en partenariat</h3>
-          <p class="text-sm text-charcoal-light leading-relaxed">
-            Les parents restent au centre du projet. Je vous tiens informés, j'intègre vos retours
-            et je peux, si besoin, échanger avec les autres professionnels déjà impliqués.
-          </p>
-        </article>
-      </div>
+      <h2 class="font-script text-4xl text-terracotta mb-10 text-center">Pourquoi faire appel à Parenthèse Répit ?</h2>
+      <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        {
+          site.whyChoose.map((reason) => (
+            <li class="flex gap-3 bg-cream rounded-2xl p-5 border border-cream-dark/50 text-charcoal-light text-sm">
+              <span class="text-sage flex-shrink-0">•</span>
+              {reason}
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 
@@ -99,12 +75,16 @@ import { images } from '../data/images';
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid md:grid-cols-2 gap-10">
         <div>
-          <h2 class="font-semibold text-charcoal text-xl mb-4">Pour qui ?</h2>
+          <h2 class="font-semibold text-charcoal text-xl mb-4">Pour quels profils ?</h2>
           <ul class="space-y-3 text-charcoal-light">
-            <li class="flex gap-2"><span class="text-sage">•</span> Familles avec enfants, adolescents ou jeunes adultes</li>
-            <li class="flex gap-2"><span class="text-sage">•</span> Parents en recherche de répit ou de soutien</li>
-            <li class="flex gap-2"><span class="text-sage">•</span> Enfants et jeunes en situation de handicap ou avec un TSA</li>
-            <li class="flex gap-2"><span class="text-sage">•</span> Familles ayant besoin d'une aide ponctuelle ou régulière</li>
+            {
+              site.profiles.map((profile) => (
+                <li class="flex gap-2">
+                  <span class="text-sage">•</span>
+                  {profile}
+                </li>
+              ))
+            }
           </ul>
         </div>
         <div>
@@ -119,6 +99,39 @@ import { images } from '../data/images';
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-cream-dark/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="font-script text-4xl text-terracotta mb-10 text-center">Comment se déroule l'accompagnement ?</h2>
+      <ol class="space-y-6 max-w-2xl mx-auto">
+        {
+          site.processSteps.map((step, index) => (
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">
+                {index + 1}
+              </span>
+              <p class="font-semibold text-charcoal pt-1">{step}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-semibold text-charcoal text-xl mb-6">Disponibilités</h2>
+      <ul class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+        {
+          site.availabilities.map((slot) => (
+            <li class="px-5 py-2 rounded-full bg-cream border border-cream-dark/50 text-sm text-charcoal-light">
+              {slot}
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 

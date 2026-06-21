@@ -4,7 +4,8 @@ Site vitrine professionnel pour **Parenthèse Répit** — accompagnement bienve
 
 - **Production :** [parenthese-repit.vercel.app](https://parenthese-repit.vercel.app)
 - **Dépôt :** [github.com/Irkeedia/Parenthese-repit](https://github.com/Irkeedia/Parenthese-repit)
-- **Éditeur technique :** [Irkeedia Labs](https://irkeedia.com) — Mathieu Toffolon
+- **Éditeur du site :** Audrey Mas — Particulier (CESU)
+- **Développement :** [Irkeedia Labs](https://irkeedia.com) — Mathieu Toffolon
 
 ---
 
@@ -130,14 +131,14 @@ La plupart des textes et coordonnées sont centralisés dans **`src/data/site.ts
 
 Les images sont définies dans **`src/data/images.ts`** et stockées dans **`public/images/`**.
 
-### Statut professionnel d'Audrey
+### Statut professionnel d'Audrey Mas
 
-Audrey exerce en tant que **salariée CESU** (particulier employeur), et non en tant
-qu'auto-entrepreneur ou prestataire indépendante. Le site ne doit donc pas mentionner
-de SIRET, de tarifs fixes affichés, ni de wording commercial type « devis » ou « facturation ».
+Audrey Mas exerce en tant que **salariée CESU** (particulier employeur), et non en tant
+qu'auto-entrepreneur. Le site ne doit pas mentionner de SIRET, de tarifs fixes affichés,
+ni de wording type « prestataire » ou « je facture ».
 
-Les informations légales correspondantes sont dans `src/data/site.ts`, section
-`legal.professional`, et sur la page `/mentions-legales`.
+Les informations légales sont dans `src/data/site.ts` (section `legal`) et sur `/mentions-legales`.
+Contenus éditoriaux centralisés dans `site.ts` : présentation, profils, étapes, disponibilités.
 
 ### Domaine custom
 

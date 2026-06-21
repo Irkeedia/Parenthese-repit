@@ -11,23 +11,27 @@ import { site } from '../data/site';
 >
   <PageHeader
     title="Modalités"
-    subtitle="Un cadre clair pour les familles : emploi direct via CESU, rémunération selon la convention collective."
+    subtitle="Un cadre clair pour les familles : emploi direct via CESU, rémunération adaptée à chaque situation."
   />
 
   <section class="py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid md:grid-cols-2 gap-10 mb-16">
-        <div class="bg-cream rounded-2xl p-8 border border-cream-dark/50">
-          <h2 class="font-semibold text-charcoal text-xl mb-4">Rémunération</h2>
-          <p class="text-charcoal-light leading-relaxed mb-4">
-            La rémunération est fixée selon la <strong class="text-charcoal">convention collective
-            des particuliers employeurs</strong>. Elle dépend notamment de la nature de
-            l'accompagnement, de la fréquence des interventions et de votre situation familiale.
+        <div class="bg-cream rounded-2xl p-8 border border-cream-dark/50 text-center md:text-left">
+          <h2 class="font-semibold text-charcoal text-xl mb-4">Tarifs</h2>
+          <p class="text-2xl font-semibold text-terracotta mb-6 leading-snug">
+            Tarifs sur devis selon les besoins de la famille
           </p>
-          <p class="text-sm text-charcoal-light leading-relaxed">
-            Je ne fixe pas de tarifs affichés : chaque projet se construit avec vous lors d'un
-            premier échange. Contactez-moi pour en discuter librement.
+          <p class="text-sm text-charcoal-light leading-relaxed mb-8">
+            La rémunération est fixée selon la convention collective des particuliers employeurs
+            et dépend de votre situation. Contactez-moi pour en discuter.
           </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center px-6 py-3 rounded-full bg-terracotta text-white font-semibold hover:bg-terracotta-light transition-colors"
+          >
+            Me contacter
+          </a>
         </div>
 
         <div class="bg-terracotta/10 rounded-2xl p-8 border border-terracotta/20">
@@ -35,7 +39,7 @@ import { site } from '../data/site';
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-terracotta" aria-hidden="true">
               <path d="M20 6 9 17l-5-5" />
             </svg>
-            <h2 class="font-semibold text-charcoal text-xl">Paiement via CESU (particulier employeur)</h2>
+            <h2 class="font-semibold text-charcoal text-xl">Paiement CESU possible</h2>
           </div>
           <p class="text-charcoal-light leading-relaxed mb-4">
             J'exerce en tant que <strong class="text-charcoal">salariée</strong> de chaque famille
@@ -55,9 +59,8 @@ import { site } from '../data/site';
         <h2 class="font-semibold text-charcoal text-xl mb-4">Comment ça fonctionne ?</h2>
         <p class="text-charcoal-light leading-relaxed mb-4">
           <strong class="text-charcoal">Parenthèse Répit</strong> est le nom sous lequel je présente
-          mon activité. Je ne suis pas auto-entrepreneur et je n'exerce pas en tant que prestataire
-          indépendante : chaque famille m'embauche directement en tant que salariée, conformément
-          au cadre CESU.
+          mon activité. Je ne suis pas auto-entrepreneur : chaque famille m'embauche directement
+          en tant que salariée, conformément au cadre CESU.
         </p>
         <p class="text-sm text-charcoal-light leading-relaxed">
           Après notre échange sur vos besoins, les modalités d'emploi (horaires, rémunération,
@@ -68,7 +71,7 @@ import { site } from '../data/site';
 
       <h2 class="font-script text-4xl text-terracotta mb-8 text-center">Modalités pratiques</h2>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-3 gap-6 mb-16">
         <article class="bg-cream-dark/50 rounded-2xl p-6 border border-cream-dark/50">
           <h3 class="font-semibold text-charcoal mb-2">Durée minimale</h3>
           <p class="text-sm text-charcoal-light leading-relaxed">
@@ -91,6 +94,19 @@ import { site } from '../data/site';
           </p>
         </article>
       </div>
+
+      <div class="text-center">
+        <h2 class="font-semibold text-charcoal text-xl mb-6">Disponibilités</h2>
+        <ul class="flex flex-wrap justify-center gap-3">
+          {
+            site.availabilities.map((slot) => (
+              <li class="px-5 py-2 rounded-full bg-cream border border-cream-dark/50 text-sm text-charcoal-light">
+                {slot}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -98,27 +114,16 @@ import { site } from '../data/site';
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
       <h2 class="font-semibold text-charcoal text-xl mb-6 text-center">Les étapes pour démarrer</h2>
       <ol class="space-y-6">
-        <li class="flex gap-4">
-          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">1</span>
-          <div>
-            <p class="font-semibold text-charcoal">Contactez-moi</p>
-            <p class="text-sm text-charcoal-light">Par téléphone au {site.phone} ou via le formulaire de contact.</p>
-          </div>
-        </li>
-        <li class="flex gap-4">
-          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">2</span>
-          <div>
-            <p class="font-semibold text-charcoal">Échangeons sur vos besoins</p>
-            <p class="text-sm text-charcoal-light">Nous définissons ensemble la nature, la fréquence et les modalités de l'accompagnement.</p>
-          </div>
-        </li>
-        <li class="flex gap-4">
-          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">3</span>
-          <div>
-            <p class="font-semibold text-charcoal">Formalisation via CESU+</p>
-            <p class="text-sm text-charcoal-light">Vous m'employez en tant que salariée via le portail CESU+, avec un cadre clair pour tous.</p>
-          </div>
-        </li>
+        {
+          site.processSteps.map((step, index) => (
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">
+                {index + 1}
+              </span>
+              <p class="font-semibold text-charcoal pt-1">{step}</p>
+            </li>
+          ))
+        }
       </ol>
 
       <div class="text-center mt-10">

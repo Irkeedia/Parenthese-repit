@@ -23,76 +23,71 @@ const { legal } = site;
       <p class="text-sm text-charcoal-light mb-10">
         Conformément aux dispositions des articles 6-III et 19 de la loi n° 2004-575 du 21 juin 2004
         pour la confiance dans l'économie numérique (LCEN), les présentes mentions légales sont
-        portées à la connaissance des utilisateurs du site {site.name}, accessible sur le domaine{' '}
-        <a href={legal.domainUrl} class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">{legal.domain}</a>.
+        portées à la connaissance des utilisateurs du site {site.name}, accessible à l'adresse{' '}
+        <a href={legal.siteUrl} class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">{legal.siteUrl}</a>.
       </p>
 
       <LegalSection title="1. Éditeur du site">
         <p>
           Le site <strong class="text-charcoal">{site.name}</strong> est édité par :
         </p>
-        <ul class="list-none space-y-1 pl-0">
-          <li><strong class="text-charcoal">{legal.editor.name}</strong></li>
-          <li>Géré par : {legal.editor.manager}</li>
-          <li>
-            Site web :{' '}
-            <a href={legal.editor.website} class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">
-              {legal.domain}
-            </a>
-          </li>
-          <li>
-            Email :{' '}
-            <a href={legal.editor.emailHref} class="text-terracotta hover:underline">{legal.editor.email}</a>
-          </li>
-        </ul>
-      </LegalSection>
-
-      <LegalSection title="2. Professionnelle présentée">
-        <p>
-          Ce site est une vitrine présentant l'activité de{' '}
-          <strong class="text-charcoal">{legal.professional.name}</strong>, sous le nom{' '}
-          <strong class="text-charcoal">{legal.professional.brandName}</strong>.
-        </p>
         <ul class="list-none space-y-1 pl-0 mt-4">
-          <li>{legal.professional.qualification}</li>
-          <li>{legal.professional.employment}</li>
-          <li>
-            Téléphone :{' '}
-            <a href={site.phoneHref} class="text-terracotta hover:underline">{site.phone}</a>
-          </li>
+          <li><strong class="text-charcoal">{legal.editor.name}</strong> — {legal.editor.status}</li>
+          <li>{legal.editor.activity}</li>
           <li>
             Email :{' '}
             <a href={site.emailHref} class="text-terracotta hover:underline">{site.email}</a>
           </li>
+          <li>
+            Téléphone :{' '}
+            <a href={site.phoneHref} class="text-terracotta hover:underline">{site.phone}</a>
+          </li>
         </ul>
         <p class="mt-4">Zone d'intervention : {site.zone}.</p>
         <p class="mt-4 text-sm">
-          {legal.professional.name} n'exerce pas en tant qu'auto-entrepreneur ni en tant que
-          prestataire indépendante. Chaque famille qui fait appel à elle l'emploie directement
-          en tant que salariée, via le portail CESU+. Ce site ne constitue pas une structure
-          commerciale : il n'y a pas de numéro SIRET ni d'adresse professionnelle à publier
-          dans ce cadre.
+          {legal.editor.name} n'exerce pas en tant qu'auto-entrepreneur. Chaque famille qui fait
+          appel à elle l'emploie directement en tant que salariée, via le portail CESU+.
+          Ce site ne constitue pas une structure commerciale : il n'y a pas de numéro SIRET
+          ni d'adresse professionnelle à publier dans ce cadre.
         </p>
       </LegalSection>
 
-      <LegalSection title="3. Directeur de la publication">
+      <LegalSection title="2. Directeur de la publication">
         <p>
           Le directeur de la publication est <strong class="text-charcoal">{legal.publicationDirector}</strong>,
-          en qualité de responsable d'{legal.editor.name}, joignable à{' '}
-          <a href={legal.editor.emailHref} class="text-terracotta hover:underline">{legal.editor.email}</a>.
+          joignable à{' '}
+          <a href={site.emailHref} class="text-terracotta hover:underline">{site.email}</a>.
         </p>
       </LegalSection>
 
-      <LegalSection title="4. Hébergement">
+      <LegalSection title="3. Hébergement">
         <p>Le site est hébergé par :</p>
-        <ul class="list-none space-y-1 pl-0">
+        <ul class="list-none space-y-1 pl-0 mt-4">
           <li><strong class="text-charcoal">{legal.host.name}</strong></li>
           <li>{legal.host.address}</li>
           <li>
             Site web :{' '}
             <a href={legal.host.website} class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">
-              {legal.domain}
+              vercel.com
             </a>
+          </li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="4. Développement du site">
+        <p>La conception et le développement technique du site ont été réalisés par :</p>
+        <ul class="list-none space-y-1 pl-0 mt-4">
+          <li><strong class="text-charcoal">{legal.developer.name}</strong></li>
+          <li>{legal.developer.manager}</li>
+          <li>
+            Site web :{' '}
+            <a href={legal.developer.website} class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">
+              irkeedia.com
+            </a>
+          </li>
+          <li>
+            Email :{' '}
+            <a href={legal.developer.emailHref} class="text-terracotta hover:underline">{legal.developer.email}</a>
           </li>
         </ul>
       </LegalSection>
@@ -100,10 +95,10 @@ const { legal } = site;
       <LegalSection title="5. Propriété intellectuelle">
         <p>
           L'ensemble du contenu éditorial relatif à l'activité {site.name} (textes, descriptions de
-          services) est la propriété de {legal.professional.name}, sauf mention contraire.
+          services) est la propriété de {legal.editor.name}, sauf mention contraire.
         </p>
         <p>
-          La conception, la structure et le développement du site sont réalisés par {legal.editor.name}.
+          La conception, la structure et le développement du site sont réalisés par {legal.developer.name}.
           Toute reproduction, représentation, modification ou exploitation non autorisée est interdite
           sans accord écrit préalable des titulaires des droits concernés.
         </p>
@@ -145,7 +140,7 @@ const { legal } = site;
         <h3 class="font-semibold text-charcoal mt-6 mb-2">Responsable du traitement</h3>
         <p>
           Les données transmises via le formulaire de contact ou par email dans le cadre d'une
-          demande de renseignements sont traitées par {legal.professional.name} ({site.email}).
+          demande de renseignements sont traitées par {legal.editor.name} ({site.email}).
         </p>
 
         <h3 class="font-semibold text-charcoal mt-6 mb-2">Données collectées</h3>
@@ -168,10 +163,10 @@ const { legal } = site;
 
         <h3 class="font-semibold text-charcoal mt-6 mb-2">Exercer vos droits</h3>
         <p>
-          Contactez {legal.professional.name} à{' '}
+          Contactez {legal.editor.name} à{' '}
           <a href={site.emailHref} class="text-terracotta hover:underline">{site.email}</a>.
           Pour toute question relative au fonctionnement technique du site, contactez{' '}
-          <a href={legal.editor.emailHref} class="text-terracotta hover:underline">{legal.editor.email}</a>.
+          <a href={legal.developer.emailHref} class="text-terracotta hover:underline">{legal.developer.email}</a>.
           Vous pouvez également introduire une réclamation auprès de la CNIL (
           <a href="https://www.cnil.fr" class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>).
         </p>
@@ -187,19 +182,19 @@ const { legal } = site;
 
       <LegalSection title="9. Limitation de responsabilité">
         <p>
-          {legal.editor.name} et {legal.professional.name} s'efforcent d'assurer l'exactitude des
-          informations diffusées sur ce site, sans toutefois en garantir l'exhaustivité ou l'actualité.
+          {legal.editor.name} s'efforce d'assurer l'exactitude des informations diffusées sur ce site,
+          sans toutefois en garantir l'exhaustivité ou l'actualité.
         </p>
         <p>
           Les informations présentes ne constituent pas un engagement contractuel ni une offre
           d'emploi. Seules les démarches formalisées via le portail CESU+ entre la famille
-          employeur et {legal.professional.name} font foi.
+          employeur et {legal.editor.name} font foi.
         </p>
       </LegalSection>
 
       <LegalSection title="10. Sécurité du site">
         <p>
-          {legal.editor.name} met en œuvre des mesures de sécurité renforcées pour protéger les
+          {legal.developer.name} met en œuvre des mesures de sécurité renforcées pour protéger les
           visiteurs : chiffrement HTTPS (HSTS), politique de sécurité du contenu (CSP), protection
           contre le clickjacking, restrictions des autorisations navigateur, et ressources servies
           exclusivement depuis le site (polices et images auto-hébergées).
@@ -210,7 +205,7 @@ const { legal } = site;
         </p>
         <p>
           Pour signaler une vulnérabilité :{' '}
-          <a href={legal.editor.emailHref} class="text-terracotta hover:underline">{legal.editor.email}</a>{' '}
+          <a href={legal.developer.emailHref} class="text-terracotta hover:underline">{legal.developer.email}</a>{' '}
           ou consultez{' '}
           <a href="/.well-known/security.txt" class="text-terracotta hover:underline">security.txt</a>.
         </p>

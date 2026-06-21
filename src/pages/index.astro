@@ -92,30 +92,19 @@ import { images } from '../data/images';
             En savoir plus sur mon parcours →
           </a>
         </div>
-        <div class="bg-cream rounded-2xl p-8 border border-cream-dark/50">
-          <h3 class="font-semibold text-charcoal mb-4">Comment ça se passe ?</h3>
-          <ol class="space-y-4">
-            <li class="flex gap-4">
-              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">1</span>
-              <div>
-                <p class="font-semibold text-charcoal">Premier contact</p>
-                <p class="text-sm text-charcoal-light">Par téléphone ou email, nous échangeons sur votre situation.</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">2</span>
-              <div>
-                <p class="font-semibold text-charcoal">Rencontre à domicile</p>
-                <p class="text-sm text-charcoal-light">Je viens vous rencontrer pour mieux comprendre vos besoins.</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">3</span>
-              <div>
-                <p class="font-semibold text-charcoal">Accompagnement</p>
-                <p class="text-sm text-charcoal-light">Nous définissons ensemble la fréquence et les objectifs.</p>
-              </div>
-            </li>
+        <div class="bg-cream rounded-2xl p-8 border border-cream-dark/50 md:col-span-2">
+          <h3 class="font-semibold text-charcoal mb-4">Comment se déroule l'accompagnement ?</h3>
+          <ol class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {
+              site.processSteps.map((step, index) => (
+                <li class="flex gap-3">
+                  <span class="flex-shrink-0 w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center text-sm font-bold">
+                    {index + 1}
+                  </span>
+                  <p class="text-sm text-charcoal-light pt-1">{step}</p>
+                </li>
+              ))
+            }
           </ol>
         </div>
       </div>

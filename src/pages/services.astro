@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
 import StockImage from '../components/StockImage.astro';
+import { site } from '../data/site';
 import { images } from '../data/images';
 ---
 
@@ -62,23 +63,34 @@ import { images } from '../data/images';
       <h2 class="font-script text-4xl text-terracotta mb-8 text-center">Pour qui, et dans quelles situations ?</h2>
       <div class="grid md:grid-cols-2 gap-8">
         <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50">
-          <h3 class="font-semibold text-charcoal mb-3">Situations fréquentes</h3>
+          <h3 class="font-semibold text-charcoal mb-3">Pourquoi faire appel à Parenthèse Répit ?</h3>
           <ul class="space-y-2 text-sm text-charcoal-light">
-            <li>• Parents épuisés qui ont besoin de souffler</li>
-            <li>• Familles avec un enfant en situation de handicap</li>
-            <li>• Adolescents ayant besoin d'un soutien éducatif</li>
-            <li>• Besoin ponctuel (vacances, événement, urgence)</li>
+            {
+              site.whyChoose.map((reason) => (
+                <li>• {reason}</li>
+              ))
+            }
           </ul>
         </article>
         <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50">
-          <h3 class="font-semibold text-charcoal mb-3">Ce que je ne remplace pas</h3>
-          <p class="text-sm text-charcoal-light leading-relaxed">
-            Mon rôle est complémentaire : je ne remplace pas les soins médicaux, le suivi
-            psychologique ou scolaire institutionnel. En revanche, je peux travailler en lien
-            avec les professionnels déjà impliqués, dans le respect de la confidentialité.
-          </p>
+          <h3 class="font-semibold text-charcoal mb-3">Pour quels profils ?</h3>
+          <ul class="space-y-2 text-sm text-charcoal-light">
+            {
+              site.profiles.map((profile) => (
+                <li>• {profile}</li>
+              ))
+            }
+          </ul>
         </article>
       </div>
+      <article class="bg-cream rounded-2xl p-6 border border-cream-dark/50 mt-8 max-w-3xl mx-auto">
+        <h3 class="font-semibold text-charcoal mb-3">Ce que je ne remplace pas</h3>
+        <p class="text-sm text-charcoal-light leading-relaxed">
+          Mon rôle est complémentaire : je ne remplace pas les soins médicaux, le suivi
+          psychologique ou scolaire institutionnel. En revanche, je peux travailler en lien
+          avec les professionnels déjà impliqués, dans le respect de la confidentialité.
+        </p>
+      </article>
     </div>
   </section>
 
