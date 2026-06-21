@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import LegalSection from '../components/LegalSection.astro';
 import { site } from '../data/site';
-import { imageCredits } from '../data/images';
 
 const { legal } = site;
 ---
@@ -15,7 +14,7 @@ const { legal } = site;
 >
   <PageHeader
     title="Mentions légales"
-    subtitle="Informations légales relatives au site et à la protection de vos données."
+    subtitle="Conformes LCEN (loi n° 2004-575 du 21 juin 2004) et RGPD."
   />
 
   <section class="py-16 md:py-20">
@@ -28,11 +27,9 @@ const { legal } = site;
       </p>
 
       <LegalSection title="1. Éditeur du site">
-        <p>
-          Le site <strong class="text-charcoal">{site.name}</strong> est édité par :
-        </p>
-        <ul class="list-none space-y-1 pl-0 mt-4">
-          <li><strong class="text-charcoal">{legal.editor.name}</strong> — {legal.editor.status}</li>
+        <ul class="list-none space-y-1 pl-0">
+          <li><strong class="text-charcoal">{legal.editor.name}</strong></li>
+          <li>{legal.editor.status}</li>
           <li>{legal.editor.activity}</li>
           <li>
             Email :{' '}
@@ -43,44 +40,19 @@ const { legal } = site;
             <a href={site.phoneHref} class="text-terracotta hover:underline">{site.phone}</a>
           </li>
         </ul>
-        <p class="mt-4">Zone d'intervention : {site.zone}.</p>
-        <p class="mt-4 text-sm">
-          {legal.editor.name} n'exerce pas en tant qu'auto-entrepreneur. Chaque famille qui fait
-          appel à elle l'emploie directement en tant que salariée, via le portail CESU+.
-          Ce site ne constitue pas une structure commerciale : il n'y a pas de numéro SIRET
-          ni d'adresse professionnelle à publier dans ce cadre.
+        <p class="mt-4">
+          Directrice de la publication : <strong class="text-charcoal">{legal.publicationDirector}</strong>
         </p>
       </LegalSection>
 
-      <LegalSection title="2. Directeur de la publication">
-        <p>
-          Le directeur de la publication est <strong class="text-charcoal">{legal.publicationDirector}</strong>,
-          joignable à{' '}
-          <a href={site.emailHref} class="text-terracotta hover:underline">{site.email}</a>.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="3. Hébergement">
-        <p>Le site est hébergé par :</p>
+      <LegalSection title="2. Développement">
+        <p>Site conçu et développé par :</p>
         <ul class="list-none space-y-1 pl-0 mt-4">
-          <li><strong class="text-charcoal">{legal.host.name}</strong></li>
-          <li>{legal.host.address}</li>
           <li>
-            Site web :{' '}
-            <a href={legal.host.website} class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">
-              vercel.com
-            </a>
+            <strong class="text-charcoal">{legal.developer.name}</strong> — {legal.developer.manager}
           </li>
-        </ul>
-      </LegalSection>
-
-      <LegalSection title="4. Développement du site">
-        <p>La conception et le développement technique du site ont été réalisés par :</p>
-        <ul class="list-none space-y-1 pl-0 mt-4">
-          <li><strong class="text-charcoal">{legal.developer.name}</strong></li>
-          <li>{legal.developer.manager}</li>
           <li>
-            Site web :{' '}
+            Site :{' '}
             <a href={legal.developer.website} class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">
               irkeedia.com
             </a>
@@ -92,129 +64,62 @@ const { legal } = site;
         </ul>
       </LegalSection>
 
-      <LegalSection title="5. Propriété intellectuelle">
-        <p>
-          L'ensemble du contenu éditorial relatif à l'activité {site.name} (textes, descriptions de
-          services) est la propriété de {legal.editor.name}, sauf mention contraire.
-        </p>
-        <p>
-          La conception, la structure et le développement du site sont réalisés par {legal.developer.name}.
-          Toute reproduction, représentation, modification ou exploitation non autorisée est interdite
-          sans accord écrit préalable des titulaires des droits concernés.
-        </p>
-        <p>
-          Toute exploitation non autorisée pourra faire l'objet de poursuites conformément aux
-          dispositions des articles L.335-2 et suivants du Code de la propriété intellectuelle.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="6. Crédits photographiques">
-        <p>
-          Les photographies illustrant le site sont des images libres de droits issues de{' '}
-          <a href="https://unsplash.com" class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">Unsplash</a>,
-          utilisées conformément à la licence Unsplash.
-        </p>
-        <ul class="space-y-2">
-          {
-            imageCredits.map((image) => (
-              <li>
-                Photo par{' '}
-                <a href={image.credit.url} class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">
-                  {image.credit.name}
-                </a>{' '}
-                sur Unsplash
-              </li>
-            ))
-          }
+      <LegalSection title="3. Hébergement">
+        <ul class="list-none space-y-1 pl-0">
+          <li><strong class="text-charcoal">{legal.host.name}</strong></li>
+          <li>{legal.host.address}</li>
+          <li>
+            Site :{' '}
+            <a href={legal.host.website} class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">
+              vercel.com
+            </a>
+          </li>
         </ul>
       </LegalSection>
 
-      <LegalSection title="7. Données personnelles (RGPD)">
+      <LegalSection title="4. Propriété intellectuelle">
         <p>
-          Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi
-          « Informatique et Libertés », vous disposez d'un droit d'accès, de rectification,
-          d'effacement, de limitation, d'opposition et de portabilité concernant vos données
-          personnelles.
+          L'ensemble du contenu de ce site (textes, visuels, structure) est la propriété exclusive
+          de {legal.editor.name} et de {legal.developer.name}.
         </p>
-
-        <h3 class="font-semibold text-charcoal mt-6 mb-2">Responsable du traitement</h3>
         <p>
-          Les données transmises via le formulaire de contact ou par email dans le cadre d'une
-          demande de renseignements sont traitées par {legal.editor.name} ({site.email}).
-        </p>
-
-        <h3 class="font-semibold text-charcoal mt-6 mb-2">Données collectées</h3>
-        <p>
-          Nom, adresse email, contenu du message et, le cas échéant, numéro de téléphone,
-          transmis volontairement par l'utilisateur.
-        </p>
-
-        <h3 class="font-semibold text-charcoal mt-6 mb-2">Finalité du traitement</h3>
-        <p>
-          Répondre à vos demandes de renseignements et organiser un premier échange sur vos besoins
-          d'accompagnement. Les données ne sont ni vendues, ni cédées à des tiers.
-        </p>
-
-        <h3 class="font-semibold text-charcoal mt-6 mb-2">Durée de conservation</h3>
-        <p>
-          Vos données sont conservées pendant la durée nécessaire au traitement de votre demande,
-          puis archivées ou supprimées conformément aux obligations légales applicables.
-        </p>
-
-        <h3 class="font-semibold text-charcoal mt-6 mb-2">Exercer vos droits</h3>
-        <p>
-          Contactez {legal.editor.name} à{' '}
-          <a href={site.emailHref} class="text-terracotta hover:underline">{site.email}</a>.
-          Pour toute question relative au fonctionnement technique du site, contactez{' '}
-          <a href={legal.developer.emailHref} class="text-terracotta hover:underline">{legal.developer.email}</a>.
-          Vous pouvez également introduire une réclamation auprès de la CNIL (
-          <a href="https://www.cnil.fr" class="text-terracotta hover:underline" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>).
+          Toute reproduction, même partielle, est interdite sans autorisation préalable écrite.
         </p>
       </LegalSection>
 
-      <LegalSection title="8. Cookies">
+      <LegalSection title="5. Données personnelles et RGPD">
         <p>
-          Ce site ne dépose pas de cookies de mesure d'audience ou de publicité. Seuls des cookies
-          techniques strictement nécessaires au fonctionnement du site peuvent être utilisés le cas
-          échéant par l'hébergeur.
+          Ce site ne collecte aucune donnée personnelle automatiquement. Aucun cookie de tracking,
+          aucun outil de statistiques tiers.
+        </p>
+        <p>
+          Le formulaire de contact fonctionne via votre client de messagerie (mailto:) : aucune
+          donnée n'est transmise à un serveur tiers. Les informations que vous communiquez
+          volontairement (nom, message) sont utilisées uniquement pour répondre à votre demande
+          et ne sont pas conservées au-delà de cet usage.
+        </p>
+        <p>
+          Conformément au RGPD (Règlement UE 2016/679) et à la loi Informatique et Libertés,
+          vous disposez d'un droit d'accès, de rectification et de suppression de vos données.
+        </p>
+        <p>
+          Contact :{' '}
+          <a href={site.emailHref} class="text-terracotta hover:underline">{site.email}</a>
         </p>
       </LegalSection>
 
-      <LegalSection title="9. Limitation de responsabilité">
+      <LegalSection title="6. Responsabilité">
         <p>
-          {legal.editor.name} s'efforce d'assurer l'exactitude des informations diffusées sur ce site,
-          sans toutefois en garantir l'exhaustivité ou l'actualité.
-        </p>
-        <p>
-          Les informations présentes ne constituent pas un engagement contractuel ni une offre
-          d'emploi. Seules les démarches formalisées via le portail CESU+ entre la famille
-          employeur et {legal.editor.name} font foi.
+          {legal.editor.name} s'efforce de maintenir les informations de ce site à jour. Elle ne
+          saurait être tenue responsable des erreurs ou omissions, ni des dommages résultant de
+          l'utilisation des informations publiées.
         </p>
       </LegalSection>
 
-      <LegalSection title="10. Sécurité du site">
+      <LegalSection title="7. Liens externes">
         <p>
-          {legal.developer.name} met en œuvre des mesures de sécurité renforcées pour protéger les
-          visiteurs : chiffrement HTTPS (HSTS), politique de sécurité du contenu (CSP), protection
-          contre le clickjacking, restrictions des autorisations navigateur, et ressources servies
-          exclusivement depuis le site (polices et images auto-hébergées).
-        </p>
-        <p>
-          Le formulaire de contact intègre une validation des données, un filtre anti-spam (honeypot)
-          et une limitation de fréquence d&apos;envoi côté navigateur.
-        </p>
-        <p>
-          Pour signaler une vulnérabilité :{' '}
-          <a href={legal.developer.emailHref} class="text-terracotta hover:underline">{legal.developer.email}</a>{' '}
-          ou consultez{' '}
-          <a href="/.well-known/security.txt" class="text-terracotta hover:underline">security.txt</a>.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="11. Droit applicable">
-        <p>
-          Les présentes mentions légales sont régies par le droit français. En cas de litige,
-          et à défaut de résolution amiable, les tribunaux français seront seuls compétents.
+          Ce site peut contenir des liens vers des sites tiers. {legal.editor.name} n'est pas
+          responsable du contenu de ces sites.
         </p>
       </LegalSection>
 

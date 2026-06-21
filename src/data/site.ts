@@ -52,8 +52,8 @@ export const site = {
     siteUrl: 'https://parenthese-repit.vercel.app',
     editor: {
       name: 'Audrey Mas',
-      status: 'Particulier',
-      activity: 'Intervenant à domicile via le dispositif CESU',
+      status: 'Particulière — Accompagnante Éducative et Sociale diplômée',
+      activity: 'Intervenant à domicile via le dispositif CESU (particulier employeur)',
     },
     developer: {
       name: 'Irkeedia Labs',
@@ -68,7 +68,7 @@ export const site = {
     publicationDirector: 'Audrey Mas',
     host: {
       name: 'Vercel Inc.',
-      address: '340 Pine Street, Suite 701, San Francisco, CA 94104',
+      address: '440 N Barranca Ave #4133, Covina, CA 91723, États-Unis',
       website: 'https://vercel.com',
     },
   },
