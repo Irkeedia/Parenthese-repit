@@ -11,6 +11,10 @@ import {
 const RATE_LIMIT_KEY = 'parenthese-repit:last-contact-submit';
 const CONTACT_EMAIL = 'audreydeom@hotmail.fr';
 
+function formatOptional(value) {
+  return value || 'Non précisé';
+}
+
 function initContactForm() {
   const root = document.getElementById('contact-form-root');
   const form = document.getElementById('contact-form');
@@ -68,6 +72,12 @@ function initContactForm() {
     }
 
     const name = sanitizeSingleLine(String(data.get('name') ?? ''), FORM_LIMITS.nameMaxLength);
+    const phone = sanitizeSingleLine(String(data.get('phone') ?? ''), FORM_LIMITS.phoneMaxLength);
+    const commune = sanitizeSingleLine(String(data.get('commune') ?? ''), FORM_LIMITS.communeMaxLength);
+    const need = sanitizeSingleLine(String(data.get('need') ?? ''), 120);
+    const profile = sanitizeSingleLine(String(data.get('profile') ?? ''), 80);
+    const frequency = sanitizeSingleLine(String(data.get('frequency') ?? ''), 80);
+    const schedule = sanitizeSingleLine(String(data.get('schedule') ?? ''), 80);
     const message = sanitizeMultiline(String(data.get('message') ?? ''), FORM_LIMITS.messageMaxLength);
 
     if (name.length < 2) {
@@ -75,13 +85,31 @@ function initContactForm() {
       return;
     }
 
-    if (message.length < 10) {
-      showError('Votre message est trop court (10 caractères minimum).');
+    if (!need) {
+      showError('Veuillez sélectionner un besoin principal.');
       return;
     }
 
-    const subject = `Demande de contact — ${name}`;
-    const body = `Bonjour Audrey,\n\nJe m'appelle ${name}.\n\n${message}\n\nCordialement,\n${name}`;
+    const subject = `Demande — ${need} — ${name}`;
+    const body = [
+      'Bonjour Audrey,',
+      '',
+      `Je m'appelle ${name}.`,
+      `Téléphone : ${phone || 'Non renseigné'}`,
+      `Commune : ${commune || 'Non renseignée'}`,
+      '',
+      '--- Contexte de la prise en charge ---',
+      `Besoin principal : ${need}`,
+      `Profil concerné : ${formatOptional(profile)}`,
+      `Fréquence souhaitée : ${formatOptional(frequency)}`,
+      `Créneau souhaité : ${formatOptional(schedule)}`,
+      '',
+      '--- Précisions complémentaires ---',
+      message || 'Aucune précision supplémentaire.',
+      '',
+      `Cordialement,`,
+      name,
+    ].join('\n');
 
     markFormSubmitted(RATE_LIMIT_KEY);
     window.location.href = buildMailtoUrl(CONTACT_EMAIL, subject, body);

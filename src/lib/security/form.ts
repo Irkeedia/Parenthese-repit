@@ -7,7 +7,10 @@ const MULTI_WHITESPACE = /\s+/g;
 
 export const FORM_LIMITS = {
   nameMaxLength: 80,
+  phoneMaxLength: 30,
+  communeMaxLength: 80,
   messageMaxLength: 2000,
+  emailBodyMaxLength: 3500,
   minSubmitIntervalMs: 60_000,
 } as const;
 
@@ -55,7 +58,7 @@ export function buildMailtoUrl(
 ): string {
   const params = new URLSearchParams({
     subject: sanitizeSingleLine(subject, 120),
-    body: sanitizeMultiline(body, FORM_LIMITS.messageMaxLength + 200),
+    body: sanitizeMultiline(body, FORM_LIMITS.emailBodyMaxLength),
   });
 
   return `mailto:${email}?${params.toString()}`;

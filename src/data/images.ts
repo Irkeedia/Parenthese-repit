@@ -1,13 +1,7 @@
 export const images = {
   hero: {
-    src: '/images/hero.jpg',
-    alt: 'Famille dans un intérieur lumineux, moment de calme et de douceur',
-    credit: { name: 'Becca Tapert', url: 'https://unsplash.com/@tapert' },
-  },
-  about: {
-    src: '/images/about.jpg',
-    alt: 'Professionnelle souriante dans un cadre chaleureux',
-    credit: { name: 'Christina @ wocintechchat.com', url: 'https://unsplash.com/@wocintechchat' },
+    src: '/images/imagehero.png',
+    alt: "Main d'adulte tenant délicatement la main d'un enfant, moment de confiance et de douceur",
   },
   family: {
     src: '/images/family.jpg',

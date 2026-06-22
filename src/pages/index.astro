@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import KeyPoints from '../components/KeyPoints.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
+import WhyChoose from '../components/WhyChoose.astro';
 import StockImage from '../components/StockImage.astro';
 import { site } from '../data/site';
 import { images } from '../data/images';
@@ -12,6 +14,7 @@ import { images } from '../data/images';
   description="Accompagnement éducatif et social à domicile entre Narbonne et Béziers. Répit parental, TSA, handicap."
 >
   <Hero />
+  <KeyPoints />
 
   <section class="py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -48,7 +51,7 @@ import { images } from '../data/images';
           </div>
           <h2 class="font-semibold text-charcoal mb-2">{site.zone}</h2>
           <p class="text-sm text-charcoal-light leading-relaxed">
-            J'interviens sur Narbonne, Béziers et les communes alentours.
+            J'interviens sur {site.zone} : communes, villages et quartiers alentours inclus.
           </p>
         </div>
       </div>
@@ -70,6 +73,8 @@ import { images } from '../data/images';
       </div>
     </div>
   </section>
+
+  <WhyChoose />
 
   <section class="py-16 md:py-20 bg-cream-dark/40">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">

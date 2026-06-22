@@ -1,0 +1,20 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class:list={['rounded-2xl overflow-hidden border border-sage/20 shadow-sm bg-cream', className]}>
+  <iframe
+    src={site.zoneMap.embedUrl}
+    title={site.zoneMap.title}
+    class="w-full aspect-[16/9] md:aspect-[21/9] border-0"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen
+  />
+</div>

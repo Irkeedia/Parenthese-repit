@@ -1,10 +1,18 @@
 ---
-import { site } from '../data/site';
+import { site, contactForm } from '../data/site';
 import { FORM_LIMITS } from '../lib/security/form';
+
+const inputClass =
+  'w-full px-4 py-3 rounded-xl border border-cream-dark bg-white/80 text-charcoal placeholder:text-charcoal-light/50 focus:outline-none focus:ring-2 focus:ring-terracotta/40 transition-shadow';
+
+const selectClass = `${inputClass} appearance-none cursor-pointer pr-10`;
+
+const sectionLabelClass =
+  'block text-xs font-bold uppercase tracking-[0.2em] text-terracotta mb-3';
 ---
 
 <div id="contact-form-root">
-  <form id="contact-form" class="space-y-4" novalidate>
+  <form id="contact-form" class="space-y-6" novalidate>
     <div
       class="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
       aria-hidden="true"
@@ -13,53 +21,158 @@ import { FORM_LIMITS } from '../lib/security/form';
       <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
     </div>
 
-    <div id="contact-form-error" class="hidden flex items-start gap-2 rounded-xl border border-terracotta/30 bg-terracotta/10 px-4 py-3 text-sm text-charcoal" role="alert">
+    <div
+      id="contact-form-error"
+      class="hidden flex items-start gap-2 rounded-xl border border-terracotta/30 bg-terracotta/10 px-4 py-3 text-sm text-charcoal"
+      role="alert"
+    >
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-terracotta" aria-hidden="true">
         <path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
       </svg>
       <p id="contact-form-error-text"></p>
     </div>
 
-    <div>
-      <label for="name" class="block text-sm font-semibold text-charcoal mb-1">Votre nom</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        required
-        minlength="2"
-        maxlength={FORM_LIMITS.nameMaxLength}
-        autocomplete="name"
-        spellcheck="false"
-        class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-white/80 text-charcoal placeholder:text-charcoal-light/50 focus:outline-none focus:ring-2 focus:ring-terracotta/40 transition-shadow"
-        placeholder="Prénom et nom"
-      />
+    <fieldset class="space-y-4">
+      <legend class="sr-only">Vos coordonnées</legend>
+
+      <div>
+        <label for="name" class="block text-sm font-semibold text-charcoal mb-1">
+          Votre nom <span class="text-terracotta">*</span>
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          minlength="2"
+          maxlength={FORM_LIMITS.nameMaxLength}
+          autocomplete="name"
+          spellcheck="false"
+          class={inputClass}
+          placeholder="Prénom et nom"
+        />
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label for="phone" class="block text-sm font-semibold text-charcoal mb-1">Téléphone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            maxlength={FORM_LIMITS.phoneMaxLength}
+            autocomplete="tel"
+            inputmode="tel"
+            class={inputClass}
+            placeholder="06 12 34 56 78"
+          />
+        </div>
+        <div>
+          <label for="commune" class="block text-sm font-semibold text-charcoal mb-1">Commune</label>
+          <input
+            type="text"
+            id="commune"
+            name="commune"
+            maxlength={FORM_LIMITS.communeMaxLength}
+            autocomplete="address-level2"
+            spellcheck="false"
+            class={inputClass}
+            placeholder="Ex. Narbonne"
+          />
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="rounded-2xl border border-sage/20 bg-cream-dark/30 p-5 space-y-4">
+      <div>
+        <p class={sectionLabelClass}>Contexte de la prise en charge</p>
+        <p class="text-sm text-charcoal-light">
+          Choisissez les options qui correspondent à votre situation.
+        </p>
+      </div>
+
+      <div>
+        <label for="need" class="block text-sm font-semibold text-charcoal mb-1">
+          Besoin principal <span class="text-terracotta">*</span>
+        </label>
+        <div class="relative">
+          <select id="need" name="need" class={selectClass} required>
+            <option value="">Sélectionner un besoin</option>
+            {contactForm.needs.map((need) => <option value={need}>{need}</option>)}
+          </select>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-charcoal-light" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </div>
+      </div>
+
+      <div>
+        <label for="profile" class="block text-sm font-semibold text-charcoal mb-1">Profil concerné</label>
+        <div class="relative">
+          <select id="profile" name="profile" class={selectClass}>
+            <option value="">Sélectionner un profil</option>
+            {site.profiles.map((profile) => <option value={profile}>{profile}</option>)}
+          </select>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-charcoal-light" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label for="frequency" class="block text-sm font-semibold text-charcoal mb-1">Fréquence souhaitée</label>
+          <div class="relative">
+            <select id="frequency" name="frequency" class={selectClass}>
+              <option value="">Sélectionner une fréquence</option>
+              {contactForm.frequencies.map((frequency) => (
+                <option value={frequency}>{frequency}</option>
+              ))}
+            </select>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-charcoal-light" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <label for="schedule" class="block text-sm font-semibold text-charcoal mb-1">Créneau souhaité</label>
+          <div class="relative">
+            <select id="schedule" name="schedule" class={selectClass}>
+              <option value="">Sélectionner un créneau</option>
+              {site.availabilities.map((slot) => <option value={slot}>{slot}</option>)}
+            </select>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-charcoal-light" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div>
-      <label for="message" class="block text-sm font-semibold text-charcoal mb-1">Votre message</label>
+      <label for="message" class="block text-sm font-semibold text-charcoal mb-1">
+        Précisions complémentaires
+      </label>
       <textarea
         id="message"
         name="message"
-        required
-        minlength="10"
         maxlength={FORM_LIMITS.messageMaxLength}
         rows={4}
         autocomplete="off"
-        class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-white/80 text-charcoal placeholder:text-charcoal-light/50 focus:outline-none focus:ring-2 focus:ring-terracotta/40 transition-shadow resize-none"
-        placeholder="Décrivez vos besoins..."
+        class={`${inputClass} resize-none`}
+        placeholder="Âge de l'enfant, situation particulière, dates souhaitées…"
       ></textarea>
-      <p class="mt-1 text-xs text-charcoal-light">Maximum {FORM_LIMITS.messageMaxLength} caractères.</p>
+      <p class="mt-1 text-xs text-charcoal-light">Facultatif — maximum {FORM_LIMITS.messageMaxLength} caractères.</p>
     </div>
 
     <button
       type="submit"
-      class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-terracotta text-white font-semibold hover:bg-terracotta-light transition-colors"
+      class="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 rounded-full bg-terracotta text-white font-semibold hover:bg-terracotta-light transition-colors"
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="m22 2-7 20-4-9-9-4Z" /><path d="M22 2 11 13" />
       </svg>
-      Envoyer un message
+      Envoyer ma demande
     </button>
   </form>
 
@@ -77,7 +190,7 @@ import { FORM_LIMITS } from '../lib/security/form';
       id="contact-form-reset"
       class="mt-2 text-sm text-terracotta hover:underline"
     >
-      Envoyer un autre message
+      Envoyer une autre demande
     </button>
   </div>
 </div>

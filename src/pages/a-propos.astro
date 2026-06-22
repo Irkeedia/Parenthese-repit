@@ -1,14 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
-import StockImage from '../components/StockImage.astro';
+import ZoneMap from '../components/ZoneMap.astro';
 import { site } from '../data/site';
-import { images } from '../data/images';
 ---
 
 <BaseLayout
   title="À propos — Parenthèse Répit"
-  description="Découvrez le parcours d'Audrey Mas, accompagnante éducative et sociale diplômée, et l'approche de Parenthèse Répit."
+  description="Découvrez le parcours d'Audrey, accompagnante éducative et sociale diplômée, et l'approche de Parenthèse Répit."
   currentPath="/a-propos"
 >
   <PageHeader
@@ -19,12 +18,15 @@ import { images } from '../data/images';
   <section class="py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid md:grid-cols-2 gap-12 items-start">
-        <StockImage
-          src={images.about.src}
-          alt={images.about.alt}
-          aspect="portrait"
-          rounded="2xl"
-        />
+        <div
+          class="aspect-[4/5] rounded-2xl border-2 border-dashed border-sage/40 bg-cream-dark/30 flex items-center justify-center p-6 text-center shadow-sm"
+          role="img"
+          aria-label="Photo d'Audrey à intégrer"
+        >
+          <p class="text-charcoal-light font-medium text-sm leading-relaxed">
+            [Photo d'Audrey à intégrer]
+          </p>
+        </div>
 
         <div class="space-y-6 text-charcoal-light leading-relaxed">
           {
@@ -63,7 +65,7 @@ import { images } from '../data/images';
           site.whyChoose.map((reason) => (
             <li class="flex gap-3 bg-cream rounded-2xl p-5 border border-cream-dark/50 text-charcoal-light text-sm">
               <span class="text-sage flex-shrink-0">•</span>
-              {reason}
+              {reason.title}
             </li>
           ))
         }
@@ -90,9 +92,11 @@ import { images } from '../data/images';
         <div>
           <h2 class="font-semibold text-charcoal text-xl mb-4">Zone d'intervention</h2>
           <p class="text-charcoal-light leading-relaxed mb-4">
-            J'interviens à domicile sur l'ensemble du secteur <strong class="text-charcoal">Narbonne – Béziers</strong>
-            et les communes alentours : villages, hameaux et quartiers périphériques inclus.
+            J'interviens à domicile sur l'ensemble du secteur{' '}
+            <strong class="text-charcoal">{site.zone}</strong> : villages, hameaux et quartiers
+            périphériques inclus.
           </p>
+          <ZoneMap class="mb-4" />
           <p class="text-sm text-charcoal-light">
             Vous habitez un peu plus loin ? Contactez-moi : nous verrons ensemble si une intervention
             est possible.

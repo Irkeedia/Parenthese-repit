@@ -1,0 +1,76 @@
+---
+const keyPoints = [
+  {
+    label: "Plusieurs années d'expérience",
+    icon: 'experience',
+    color: 'terracotta',
+  },
+  {
+    label: 'Accompagnante diplômée',
+    icon: 'diploma',
+    color: 'sage',
+  },
+  {
+    label: 'Interventions à domicile',
+    icon: 'home',
+    color: 'terracotta',
+  },
+  {
+    label: 'Secteur Narbonne – Béziers et alentours',
+    icon: 'zone',
+    color: 'sage',
+  },
+] as const;
+---
+
+<section class="py-10 md:py-12 bg-cream-dark/40 border-y border-cream-dark/60">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      {
+        keyPoints.map((point) => (
+          <li
+            class:list={[
+              'flex items-center gap-4 rounded-2xl bg-cream px-5 py-4 border shadow-sm',
+              point.color === 'terracotta'
+                ? 'border-terracotta/15'
+                : 'border-sage/15',
+            ]}
+          >
+            <span
+              class:list={[
+                'flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center',
+                point.color === 'terracotta'
+                  ? 'bg-terracotta/10 text-terracotta'
+                  : 'bg-sage/15 text-sage',
+              ]}
+            >
+              {point.icon === 'experience' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+                </svg>
+              )}
+              {point.icon === 'diploma' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              )}
+              {point.icon === 'home' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              )}
+              {point.icon === 'zone' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              )}
+            </span>
+            <span class="font-semibold text-sm text-charcoal leading-snug">{point.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

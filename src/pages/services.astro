@@ -43,7 +43,7 @@ import { images } from '../data/images';
         <div class="grid sm:grid-cols-2 gap-4 text-sm text-charcoal-light">
           <ul class="space-y-2">
             <li class="flex gap-2"><span class="text-sage">•</span> Accompagnement aux activités quotidiennes</li>
-            <li class="flex gap-2"><span class="text-sage">•</span> Soutien aux devoirs et à l'autonomie</li>
+            <li class="flex gap-2"><span class="text-sage">•</span> Soutien dans les routines et activités du quotidien</li>
             <li class="flex gap-2"><span class="text-sage">•</span> Sorties, loisirs, socialisation</li>
             <li class="flex gap-2"><span class="text-sage">•</span> Aide à la gestion des routines</li>
           </ul>
@@ -67,7 +67,7 @@ import { images } from '../data/images';
           <ul class="space-y-2 text-sm text-charcoal-light">
             {
               site.whyChoose.map((reason) => (
-                <li>• {reason}</li>
+                <li>• {reason.title}</li>
               ))
             }
           </ul>
