@@ -3,19 +3,14 @@ export const images = {
     src: '/images/imagehero.png',
     alt: "Main d'adulte tenant délicatement la main d'un enfant, moment de confiance et de douceur",
   },
-  heroBanner: {
-    src: '/images/imageplagehero.png',
-    alt: 'Famille réunie face à la mer, un moment de sérénité partagé',
-  },
   family: {
     src: '/images/family.jpg',
     alt: 'Parents et enfants réunis dans une lumière dorée, en toute sérénité',
     credit: { name: 'Nathan Dumlao', url: 'https://unsplash.com/@nate_dumlao' },
   },
   services: {
-    src: '/images/services.jpg',
-    alt: 'Enfant peignant dans un cadre ludique et bienveillant',
-    credit: { name: 'Ben White', url: 'https://unsplash.com/@benwhitephotography' },
+    src: '/images/imageservice.png',
+    alt: 'Enfant souriante peignant dans un cadre ludique et bienveillant',
   },
   homeCare: {
     src: '/images/home-care.jpg',

@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
-import StockImage from '../components/StockImage.astro';
 import { site } from '../data/site';
 import { images } from '../data/images';
 ---
@@ -20,12 +19,16 @@ import { images } from '../data/images';
   <section class="py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
-        <StockImage
-          src={images.services.src}
-          alt={images.services.alt}
-          aspect="wide"
-          rounded="2xl"
-        />
+        <div class="relative overflow-hidden rounded-2xl shadow-xl aspect-[16/9]">
+          <img
+            src={images.services.src}
+            alt={images.services.alt}
+            class="absolute inset-0 h-full w-full object-cover object-[48%_52%] scale-[1.14] sm:scale-[1.16] md:scale-[1.18]"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal/10 to-transparent pointer-events-none"></div>
+        </div>
         <div>
           <h2 class="font-script text-3xl text-terracotta mb-4">Un accompagnement sur mesure</h2>
           <p class="text-charcoal-light leading-relaxed">
