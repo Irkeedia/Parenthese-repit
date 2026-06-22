@@ -4,9 +4,7 @@ import Hero from '../components/Hero.astro';
 import KeyPoints from '../components/KeyPoints.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
 import WhyChoose from '../components/WhyChoose.astro';
-import StockImage from '../components/StockImage.astro';
 import { site } from '../data/site';
-import { images } from '../data/images';
 ---
 
 <BaseLayout
@@ -79,14 +77,7 @@ import { images } from '../data/images';
   <section class="py-16 md:py-20 bg-cream-dark/40">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid md:grid-cols-2 gap-10 items-center">
-        <StockImage
-          src={images.family.src}
-          alt={images.family.alt}
-          aspect="wide"
-          rounded="2xl"
-          class="order-2 md:order-1"
-        />
-        <div class="order-1 md:order-2">
+        <div class="md:col-span-2 max-w-2xl">
           <h2 class="font-script text-4xl text-terracotta mb-4">Une approche humaine</h2>
           <p class="text-charcoal-light leading-relaxed mb-4">
             {site.values.join(', ')} sont au cœur de mon accompagnement. Chaque famille est unique :

@@ -3,6 +3,10 @@ export const images = {
     src: '/images/imagehero.png',
     alt: "Main d'adulte tenant délicatement la main d'un enfant, moment de confiance et de douceur",
   },
+  heroBanner: {
+    src: '/images/imageplagehero.png',
+    alt: 'Famille réunie face à la mer, un moment de sérénité partagé',
+  },
   family: {
     src: '/images/family.jpg',
     alt: 'Parents et enfants réunis dans une lumière dorée, en toute sérénité',
